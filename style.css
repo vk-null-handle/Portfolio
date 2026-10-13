@@ -47,6 +47,7 @@ nav {
   border-bottom: 0.0625rem solid var(--line);
   position: relative;
   z-index: 2;
+  background: var(--bg);
 }
 
 .nav-inner {
