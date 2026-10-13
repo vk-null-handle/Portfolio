@@ -11,7 +11,7 @@
   --text: #f1f1ed;
   --muted: #777;
   --subtle: #444;
-  --line: #202020;
+  --line: #404040;
   --accent: #b8ff5c;
 }
 
@@ -24,6 +24,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background: var(--bg);
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='29' height='50.115' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23090909ff'/><path d='M14.498 16.858L0 8.488.002-8.257l14.5-8.374L29-8.26l-.002 16.745zm0 50.06L0 58.548l.002-16.745 14.5-8.373L29 41.8l-.002 16.744zM28.996 41.8l-14.498-8.37.002-16.744L29 8.312l14.498 8.37-.002 16.745zm-29 0l-14.498-8.37.002-16.744L0 8.312l14.498 8.37-.002 16.745z'  stroke-width='1' stroke='%23f2f2ee14' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
   color: var(--text);
   font: 0.875rem/1.5 Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -297,7 +298,7 @@ section {
 
 .project-year {
   color: var(--subtle);
-  font-size: 0.6875rem;
+  font-size: 0.85rem;
 }
 
 /* About */
