@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Home — Website</title>
-    <link rel="stylesheet" href="./style/style.css" />
-	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — Website</title>
+  <link rel="stylesheet" href="./style/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+</head>
 
-  <body>
-    <nav>
-      <div class="nav-inner">
-        <a href="#" class="logo">BS<span>.</span></a>
+<body>
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="logo">BS<span>.</span></a>
 
-        <div class="nav-links">
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
-          <a
-            href="https://github.com/v2fingers"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub ↗
-          </a>
-        </div>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a
+          href="https://github.com/v2fingers"
+          target="_blank"
+          rel="noopener noreferrer"
+        >GitHub ↗</a>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <div class="container">
-      <!-- HERO -->
-      <main class="hero">
-        <h1>
+  <div class="container">
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title">
           Hendrerit.
           <span>Nascetur ridiculus mus.</span>
         </h1>
 
         <p class="hero-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat,
-          dolor eu accumsan pretium, diam dui hendrerit magna, ut suscipit arcu mi sit
-          amet velit. Sed sem eros, feugiat a tortor id, ornare scelerisque eros.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Phasellus feugiat, dolor eu accumsan pretium, diam dui
+          hendrerit magna, ut suscipit arcu mi sit amet velit.
+          Sed sem eros, feugiat a tortor id, ornare scelerisque eros.
         </p>
 
         <a href="#work" class="hero-link">
-          View selected work <span>↓</span>
+          View selected work <span aria-hidden="true">↓</span>
         </a>
-      </main>
+      </section>
 
-      <!-- WORK -->
-      <section id="work">
+      <section id="work" aria-labelledby="work-title">
         <div class="section-heading">
           <span class="label">01</span>
-          <span class="section-title">Selected work</span>
+          <h2 class="section-title" id="work-title">Selected work</h2>
         </div>
 
         <div class="work">
@@ -63,23 +64,26 @@
 
               <div class="project-meta">
                 <span>TYPE</span>
-                <span class="plus">+</span>
+                <span class="plus" aria-hidden="true">+</span>
               </div>
             </summary>
 
             <div class="project-content">
               <div class="project-description">
                 <p>
-                  Orci varius natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Integer molestie metus ornare, lobortis eros vel, vulputate sapien.
+                  Orci varius natoque penatibus et magnis dis
+                  parturient montes, nascetur ridiculus mus.
+                  Orci varius natoque penatibus et magnis dis
+                  parturient montes, nascetur ridiculus mus.
+                  Integer molestie metus ornare, lobortis eros vel,
+                  vulputate sapien.
                 </p>
-                
-<img
-  class="project-image"
-  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-  alt="Dashboard and data analytics interface"
-/>
+
+                <img
+                  class="project-image"
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
+                  alt="Dashboard and data analytics interface"
+                >
 
                 <div class="project-tags">
                   <span>LANG</span>
@@ -101,23 +105,25 @@
 
               <div class="project-meta">
                 <span>TYPE</span>
-                <span class="plus">+</span>
+                <span class="plus" aria-hidden="true">+</span>
               </div>
             </summary>
 
             <div class="project-content">
               <div class="project-description">
                 <p>
-                  Quisque ut euismod nulla. Maecenas imperdiet, justo commodo
-                  bibendum pellentesque. Quisque congue sit amet urna sit amet interdum.
-                  Morbi nisl elit, bibendum sit amet malesuada sit amet, finibus in tellus.
+                  Quisque ut euismod nulla. Maecenas imperdiet,
+                  justo commodo bibendum pellentesque.
+                  Quisque congue sit amet urna sit amet interdum.
+                  Morbi nisl elit, bibendum sit amet malesuada
+                  sit amet, finibus in tellus.
                 </p>
-                
-<img
-  class="project-image"
-  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
-  alt="Developer workspace with a laptop"
-/>
+
+                <img
+                  class="project-image"
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
+                  alt="Developer workspace with a laptop"
+                >
 
                 <div class="project-tags">
                   <span>LANG</span>
@@ -139,16 +145,18 @@
 
               <div class="project-meta">
                 <span>TYPE</span>
-                <span class="plus">+</span>
+                <span class="plus" aria-hidden="true">+</span>
               </div>
             </summary>
 
             <div class="project-content">
               <div class="project-description">
                 <p>
-                  Morbi nisl elit, bibendum sit amet malesuada sit amet, finibus in tellus.
-                  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-                  Nunc mollis sit amet lorem quis ornare.
+                  Morbi nisl elit, bibendum sit amet malesuada
+                  sit amet, finibus in tellus. Vestibulum ante
+                  ipsum primis in faucibus orci luctus et ultrices
+                  posuere cubilia curae. Nunc mollis sit amet
+                  lorem quis ornare.
                 </p>
 
                 <div class="project-tags">
@@ -164,11 +172,10 @@
         </div>
       </section>
 
-      <!-- ABOUT -->
-      <section id="about">
+      <section id="about" aria-labelledby="about-title">
         <div class="section-heading">
           <span class="label">02</span>
-          <span class="section-title">About</span>
+          <h2 class="section-title" id="about-title">About</h2>
         </div>
 
         <div class="about-grid">
@@ -178,33 +185,39 @@
           </p>
 
           <p class="about-secondary">
-            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci
-            varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Integer molestie metus ornare, lobortis eros vel, vulputate sapien. Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Phasellus feugiat, dolor eu accumsan pretium, diam
-						dui hendrerit magna, ut suscipit arcu mi sit.
+            Orci varius natoque penatibus et magnis dis
+            parturient montes, nascetur ridiculus mus.
+            Orci varius natoque penatibus et magnis dis
+            parturient montes, nascetur ridiculus mus.
+            Integer molestie metus ornare, lobortis eros vel,
+            vulputate sapien. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Phasellus feugiat,
+            dolor eu accumsan pretium, diam dui hendrerit magna,
+            ut suscipit arcu mi sit.
           </p>
         </div>
       </section>
 
-      <!-- GITHUB -->
-      <section class="contact-section">
+      <section class="contact-section" aria-labelledby="contact-title">
         <div class="section-heading">
-          <span class="label">04</span>
-          <span class="section-title">Contact</span>
+          <span class="label">03</span>
+          <h2 class="section-title" id="contact-title">Contact</h2>
         </div>
 
-        <a href="myname@example.com" target="_blank" rel="noopener noreferrer" class="email-link">
+        <a
+          href="mailto:myname@example.com"
+          class="email-link"
+        >
           <span>myname@example.com</span>
-          <span>↗</span>
+          <span aria-hidden="true">↗</span>
         </a>
       </section>
+    </main>
 
-      <!-- FOOTER -->
-      <footer>
-        <span>© 2026 Bastian Shelton</span>
-        <span>Built with HTML &amp; CSS</span>
-      </footer>
-    </div>
-  </body>
+    <footer>
+      <span>© 2026 Bastian Shelton</span>
+      <span>Built with HTML &amp; CSS</span>
+    </footer>
+  </div>
+</body>
 </html>
