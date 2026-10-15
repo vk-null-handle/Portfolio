@@ -45,8 +45,9 @@ a {
 nav {
   height: 3.75rem;
   border-bottom: 0.0625rem solid var(--line);
-  position: relative;
-  z-index: 2;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background: var(--bg);
 }
 
