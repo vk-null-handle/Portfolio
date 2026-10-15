@@ -185,6 +185,27 @@ section {
 
 /* Projects */
 
+.project-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-top: 1.5rem;
+
+  border: 1px solid var(--line);
+  border-radius: 3px;
+
+  filter: brightness(0.85);
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+.project-image:hover {
+  filter: brightness(1);
+  transform: translateY(-2px);
+}
+
 .work {
   border-top: 0.0625rem solid var(--line);
 }
