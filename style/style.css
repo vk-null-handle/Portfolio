@@ -1,4 +1,9 @@
-*{
+
+/* ========================================
+   1. RESET AND GLOBAL STYLES
+   ======================================== */
+
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -7,27 +12,35 @@
 :root {
   --bg: #090909;
   --surface: #101010;
-  --surface-hover: #141414;
+  --surface-hover: #171717;
   --text: #f1f1ed;
-  --muted: #777;
-  --subtle: #444;
-  --line: #404040;
+  --muted: #999999;
+  --subtle: #666666;
+  --line: #333333;
   --accent: #b8ff5c;
 }
 
 html {
   scroll-behavior: smooth;
-  font-size: clamp(1rem, 0.833vw, 2rem);
+  scroll-padding-top: 5rem;
+  font-size: clamp(14px, 0.833vw, 18px);
 }
 
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  background: var(--bg);
-  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='29' height='50.115' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23090909ff'/><path d='M14.498 16.858L0 8.488.002-8.257l14.5-8.374L29-8.26l-.002 16.745zm0 50.06L0 58.548l.002-16.745 14.5-8.373L29 41.8l-.002 16.744zM28.996 41.8l-14.498-8.37.002-16.744L29 8.312l14.498 8.37-.002 16.745zm-29 0l-14.498-8.37.002-16.744L0 8.312l14.498 8.37-.002 16.745z'  stroke-width='1' stroke='%23f2f2ee14' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpattern id='p' width='29' height='50' patternUnits='userSpaceOnUse'%3E%3Cpath d='M14 0 L29 8 L29 25 L14 33 L0 25 L0 8 Z' fill='none' stroke='%23f2f2ee' stroke-opacity='.06'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23p)'/%3E%3C/svg%3E");
   color: var(--text);
-  font: 0.875rem/1.5 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
 }
 
 a {
@@ -35,41 +48,57 @@ a {
   text-decoration: none;
 }
 
-::selection {
-  background: var(--accent);
-  color: #090909;
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: 3px;
 }
 
-/* Navigation */
+img {
+  max-width: 100%;
+}
 
-nav {
-  height: 3.75rem;
-  border-bottom: 0.0625rem solid var(--line);
+/* ========================================
+   2. HEADER AND NAVIGATION
+   ======================================== */
+
+.site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--bg);
+}
+
+nav {
+  min-height: 3.75rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(9, 9, 9, 0.96);
+  backdrop-filter: blur(12px);
 }
 
 .nav-inner {
-  width: 100%;
-  max-width: 67.5rem;
-  height: 100%;
-  margin: auto;
-  padding: 0 2.5rem;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 67.5rem;
+  min-height: 3.75rem;
+  margin: 0 auto;
+  padding: 0 2.5rem;
 }
 
 .logo {
   font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.06em;
+  transition: color 0.2s ease;
 }
 
 .logo span {
+  color: var(--accent);
+}
+
+.logo:hover {
   color: var(--accent);
 }
 
@@ -89,61 +118,86 @@ nav {
   color: var(--accent);
 }
 
-/* Layout */
+/* ========================================
+   3. MAIN LAYOUT
+   ======================================== */
 
 .container {
   width: 56.25rem;
   max-width: calc(100% - 2.5rem);
-  margin: auto;
+  margin: 0 auto;
 }
 
-/* Hero */
+main {
+  width: 100%;
+}
+
+section {
+  padding: 6.25rem 0;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* ========================================
+   4. HERO SECTION
+   ======================================== */
 
 .hero {
-  min-height: 78vh;
-  padding: 6.25rem 0;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 0.0625rem solid var(--line);
+  min-height: 78vh;
+  padding: 6.25rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  animation: fade-in 0.7s ease both;
 }
 
 h1 {
   max-width: 53.125rem;
-
   font-size: clamp(3.5rem, 9vw, 7rem);
   font-weight: 400;
-  line-height: 0.9;
+  line-height: 0.98;
   letter-spacing: -0.075em;
+  overflow-wrap: anywhere;
+  animation: fade-in 0.8s ease both;
 }
 
 h1 span {
   display: block;
+  margin-top: 0.3rem;
   color: var(--muted);
 }
 
 .hero-text {
   max-width: 25.625rem;
   margin-top: 2.375rem;
-
-  color: #999;
+  color: var(--muted);
   font-size: 0.9375rem;
-  line-height: 1.6;
+  line-height: 1.8;
+  animation: fade-in 1s ease both;
 }
 
 .hero-link {
+  display: inline-flex;
+  align-items: center;
   width: fit-content;
   margin-top: 3rem;
   padding-bottom: 0.3125rem;
-
-  border-bottom: 0.0625rem solid var(--subtle);
-  color: var(--text);
+  border-bottom: 1px solid var(--subtle);
   font-size: 0.75rem;
-
   transition:
     color 0.2s ease,
-    border-color 0.2s ease;
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .hero-link span {
@@ -152,16 +206,14 @@ h1 span {
 }
 
 .hero-link:hover {
-  color: var(--accent);
+  transform: translateY(3px);
   border-color: var(--accent);
+  color: var(--accent);
 }
 
-/* Sections */
-
-section {
-  padding: 6.25rem 0;
-  /* border-top: 0.0625rem solid var(--line); */
-}
+/* ========================================
+   5. SECTION HEADINGS
+   ======================================== */
 
 .section-heading {
   display: flex;
@@ -173,66 +225,51 @@ section {
 .label {
   color: var(--accent);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.15em;
 }
 
 .section-title {
   color: var(--muted);
   font-size: 1rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
 
-/* Projects */
-
-.project-image {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  margin-top: 1.5rem;
-
-  border: 1px solid var(--line);
-  border-radius: 3px;
-
-  filter: brightness(0.85);
-  transition:
-    filter 0.3s ease,
-    transform 0.3s ease;
-}
-
-.project-image:hover {
-  filter: brightness(1);
-  transform: translateY(-2px);
-}
+/* ========================================
+   6. PROJECT ACCORDION
+   ======================================== */
 
 .work {
-  border-top: 0.0625rem solid var(--line);
+  border-top: 1px solid var(--line);
 }
 
 .project {
-  border-bottom: 0.0625rem solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .project summary {
-  min-height: 4.75rem;
-  padding: 0;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  gap: 1rem;
+  min-height: 4.75rem;
+  padding: 0.75rem 0;
   cursor: pointer;
   list-style: none;
-
   transition:
-    background 0.25s ease,
-    padding 0.25s ease;
+    color 0.25s ease,
+    padding 0.25s ease,
+    background 0.25s ease;
 }
 
 .project summary::-webkit-details-marker {
   display: none;
+}
+
+.project summary::marker {
+  content: "";
 }
 
 .project summary:hover {
@@ -243,10 +280,16 @@ section {
   color: var(--accent);
 }
 
+.project-heading {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
 .project-number {
   display: inline-block;
   width: 2.8125rem;
-
+  flex-shrink: 0;
   color: var(--subtle);
   font-size: 0.625rem;
 }
@@ -260,21 +303,22 @@ section {
   display: flex;
   align-items: center;
   gap: 1.875rem;
-
+  flex-shrink: 0;
   color: var(--muted);
   font-size: 0.6875rem;
 }
 
 .plus {
+  display: inline-block;
   width: 1.25rem;
-
   color: var(--text);
   font-size: 1.25rem;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 1;
   text-align: center;
-
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .project[open] .plus {
@@ -284,20 +328,42 @@ section {
 
 .project-content {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 2.5rem;
-
   padding: 0.3125rem 0 2.1875rem 2.8125rem;
+  animation: reveal 0.35s ease both;
 }
 
 .project-description {
+  min-width: 0;
   max-width: 31.25rem;
 }
 
 .project-description p {
-  color: #999;
+  color: var(--muted);
   font-size: 0.875rem;
-  line-height: 1.7;
+  line-height: 1.8;
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-top: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  filter: brightness(0.85);
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.project-image:hover {
+  filter: brightness(1);
+  transform: translateY(-3px);
+  border-color: var(--accent);
 }
 
 .project-tags {
@@ -309,14 +375,20 @@ section {
 
 .project-tags span {
   padding: 0.3125rem 0.5625rem;
-
-  border: 0.0625rem solid var(--line);
-  border-radius: 6.25rem;
-
+  border: 1px solid var(--line);
+  border-radius: 100px;
   color: var(--muted);
   font-size: 0.5625rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.project-tags span:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .project-year {
@@ -324,7 +396,9 @@ section {
   font-size: 0.85rem;
 }
 
-/* About */
+/* ========================================
+   7. ABOUT SECTION
+   ======================================== */
 
 .about-grid {
   display: grid;
@@ -334,9 +408,8 @@ section {
 
 .about {
   max-width: 37.5rem;
-
   font-size: clamp(1.7rem, 4vw, 3rem);
-  line-height: 1.08;
+  line-height: 1.15;
   letter-spacing: -0.055em;
 }
 
@@ -345,15 +418,16 @@ section {
 }
 
 .about-secondary {
-  max-width: 17.5rem;
+  max-width: 25rem;
   padding-top: 0.5rem;
-
   color: var(--muted);
   font-size: 0.8125rem;
-  line-height: 1.7;
+  line-height: 1.9;
 }
 
-/* GitHub */
+/* ========================================
+   8. CONTACT SECTION
+   ======================================== */
 
 .contact-section {
   padding-bottom: 8.125rem;
@@ -363,35 +437,237 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  gap: 1rem;
   padding: 1.5rem 0;
-
-  border-top: 0.0625rem solid var(--line);
-  border-bottom: 0.0625rem solid var(--line);
-
-  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(1.1rem, 4vw, 2.8rem);
   letter-spacing: -0.055em;
-
+  overflow-wrap: anywhere;
   transition:
     color 0.2s ease,
-    padding 0.25s ease;
+    padding 0.25s ease,
+    border-color 0.2s ease;
 }
 
 .email-link:hover {
-  padding-left: 0.625rem;
   padding-right: 0.625rem;
+  padding-left: 0.625rem;
+  border-color: var(--accent);
   color: var(--accent);
 }
 
-/* Footer */
+/* ========================================
+   9. FOOTER
+   ======================================== */
 
 footer {
-  padding: 1.375rem 0 1.875rem;
-
   display: flex;
   justify-content: space-between;
-
+  gap: 1rem;
+  padding: 1.375rem 0 1.875rem;
+  border-top: 1px solid var(--line);
   color: var(--subtle);
   font-size: 0.625rem;
   letter-spacing: 0.02em;
+}
+
+/* ========================================
+   10. ANIMATIONS
+   ======================================== */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced-motion accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   11. TABLET RESPONSIVENESS
+   ======================================== */
+
+@media (max-width: 800px) {
+  .nav-inner {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .container {
+    max-width: calc(100% - 3rem);
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .project-content {
+    gap: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
+/* ========================================
+   12. MOBILE RESPONSIVENESS
+   ======================================== */
+
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+
+  .nav-inner {
+    min-height: 3.75rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.7rem;
+  }
+
+  .container {
+    max-width: calc(100% - 2rem);
+  }
+
+  .hero {
+    min-height: 65vh;
+    padding: 4rem 0;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 10.5vw, 4rem);
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-text {
+    margin-top: 1.75rem;
+    font-size: 0.875rem;
+  }
+
+  .hero-link {
+    margin-top: 2rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  .section-heading {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .project summary {
+    gap: 0.5rem;
+    min-height: 4.5rem;
+  }
+
+  .project-number {
+    width: 2rem;
+  }
+
+  .project-name {
+    font-size: 0.875rem;
+  }
+
+  .project-meta {
+    gap: 0.5rem;
+    font-size: 0.6rem;
+  }
+
+  .project-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.5rem 0 1.5rem;
+  }
+
+  .project-year {
+    text-align: right;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
+
+  .about-secondary {
+    max-width: none;
+  }
+
+  .contact-section {
+    padding-bottom: 5rem;
+  }
+
+  .email-link {
+    font-size: clamp(1rem, 4.5vw, 1.5rem);
+  }
+
+  footer {
+    flex-wrap: wrap;
+    font-size: 0.6rem;
+  }
+}
+
+/* ========================================
+   13. VERY SMALL SCREENS
+   ======================================== */
+
+@media (max-width: 360px) {
+  .nav-links {
+    gap: 0.625rem;
+    font-size: 0.625rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .project-meta > span:first-child {
+    display: none;
+  }
+
+  .section-title {
+    font-size: 0.875rem;
+  }
 }
